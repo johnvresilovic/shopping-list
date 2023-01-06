@@ -3,14 +3,10 @@ import { useState } from 'react';
 import GroceryItem from './components/GroceryItem';
 import groceries from './groceries'
 
-const list = groceries.map((element, index) => {
-  return( !element.isPurchased && <GroceryItem element={element} key={index}/>  )
-
-})
-
 function App() {
   const [groceryList, setGroceryList] = useState(groceries)
-  const addItem = () => {
+  const addItem = e => {
+      e.preventDefault()
       setGroceryList(groceryList.concat([{
       item: document.querySelector('input[name="item"]').value,
       brand: document.querySelector('input[name="brand"]').value,
@@ -18,19 +14,16 @@ function App() {
       quantity: document.querySelector('input[name="quantity"]').value,
       isPurchased:false
     }]))}
-
-    const handleSubmit = e => {
-      e.preventDefault()
-      addItem()
-    } 
   
   return (
     <div className="App">
       <h3>Shopping List</h3>
-      {list}
+      {groceryList.map((element, index) => {
+        return( !element.isPurchased && <GroceryItem element={element} key={index}/>  )
+        })}
       <br/>
       <hr/>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={addItem}>
             <h3>Add to the list</h3>
             <p>Item:</p> <input type='text' name="item"></input> <br/>
             <p>Brand:</p> <input type='text' name="brand"></input><br/>
@@ -39,7 +32,6 @@ function App() {
             <p>Quantity:</p> <input type='number' name="quantity"></input><br/>
             <input type='submit' value='submit'></input>
         </form>
-
       </div>
   );
 }
