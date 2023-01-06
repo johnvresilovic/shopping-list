@@ -2,9 +2,9 @@ export default [
 {
   item: 'sliced turkey',
   brand: 'Gobbler',
-  units: 'lb',
+  units: 'lbs',
   quantity: 1,
-  isPurchased: false,
+  isPurchased: true,
 },
 {
   item: 'laundry detergent',
@@ -16,14 +16,14 @@ export default [
 {
   item: 'Everlasting Gobstoppers',
   brand: 'Wonka',
-  units: 'pkgs',
+  units: 'pkg',
   quantity: 3,
   isPurchased: false,
 },
 {
   item: 'animal crackers',
   brand: 'Marx Bros.',
-  units: 'box',
+  units: 'ctn',
   quantity: 1,
   isPurchased: false, 
 }

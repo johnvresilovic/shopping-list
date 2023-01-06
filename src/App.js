@@ -3,22 +3,24 @@ import groceries from './groceries';
 
 const list = groceries.map((element, index) => {
   return(
-    <div>
-      <h4>Item: {element.item}</h4>
-      <h4>Brand: {element.brand}</h4>
-      <h4>Units: {element.units}</h4>
-      <h4>Quantity: {element.quantity}</h4>
-      <h4>Purchased? </h4> 
-      {/* <input type='checkbox'>{element.isPurchased}</input> */}
-      <br/>
+    <div key={index}>
+      <h3>Item: {element.item}</h3>
+      <p>Brand: {element.brand}</p>
+      <p>Unit: {element.units}</p>
+      <p>Quantity: {element.quantity}</p>
+      <p>Purchased? 
+        {element.isPurchased === true ? 
+        (<input type="checkbox" checked></input>) : (<input type="checkbox"></input>)}</p>
+        <br/>
     </div>
+
   )
 })
 
 export default function App() {
   return (
     <div className="App">
-      <h3>Shopping List</h3>
+      <h2>Shopping List</h2>
       {list}
     </div>
   );
