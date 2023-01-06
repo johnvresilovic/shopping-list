@@ -1,25 +1,47 @@
 import './App.css';
-import groceries from './groceries';
+import { useState } from 'react';
+import GroceryItem from './components/GroceryItem';
+import groceries from './groceries'
 
 const list = groceries.map((element, index) => {
-  let listItem = <div key={index}>
-      <h3>Item: {element.item}</h3>
-      <p>Brand: {element.brand}</p>
-      <p>Unit: {element.units}</p>
-      <p>Quantity: {element.quantity}</p>
-      {/* <p>Purchased? 
-        {element.isPurchased === true ? 
-        (<input type="checkbox" checked></input>) : (<input type="checkbox"></input>)}</p> */}
-        <br/>
-    </div>
-  return (!element.isPurchased && listItem)
+  return( !element.isPurchased && <GroceryItem element={element} key={index}/>  )
+
 })
 
-export default function App() {
+function App() {
+  const [groceryList, setGroceryList] = useState(groceries)
+  const addItem = () => {
+      setGroceryList(groceryList.concat([{
+      item: document.querySelector('input[name="item"]').value,
+      brand: document.querySelector('input[name="brand"]').value,
+      units: document.querySelector('input[name="units"]').value,
+      quantity: document.querySelector('input[name="quantity"]').value,
+      isPurchased:false
+    }]))}
+
+    const handleSubmit = e => {
+      e.preventDefault()
+      addItem()
+    } 
+  
   return (
     <div className="App">
-      <h2>Shopping List</h2>
+      <h3>Shopping List</h3>
       {list}
-    </div>
+      <br/>
+      <hr/>
+      <form onSubmit={handleSubmit}>
+            <h3>Add to the list</h3>
+            <p>Item:</p> <input type='text' name="item"></input> <br/>
+            <p>Brand:</p> <input type='text' name="brand"></input><br/>
+            <p>Units:</p> <input type='text' name="units"></input>
+            <br/>
+            <p>Quantity:</p> <input type='number' name="quantity"></input><br/>
+            <input type='submit' value='submit'></input>
+        </form>
+
+      </div>
   );
 }
+
+export default App

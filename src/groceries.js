@@ -1,11 +1,11 @@
 export default [
-{
-  item: 'sliced turkey',
-  brand: 'Gobbler',
-  units: 'lbs',
-  quantity: 1,
-  isPurchased: false,
-},
+// {
+//   item: 'sliced turkey',
+//   brand: 'Gobbler',
+//   units: 'lbs',
+//   quantity: 1,
+//   isPurchased: false,
+// },
 {
   item: 'laundry detergent',
   brand: 'Forever Chemicals',
