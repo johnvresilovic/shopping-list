@@ -1,25 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import groceries from './groceries';
 
-function App() {
+const list = groceries.map((element, index) => {
+  return(
+    <div>
+      <h4>Item: {element.item}</h4>
+      <h4>Brand: {element.brand}</h4>
+      <h4>Units: {element.units}</h4>
+      <h4>Quantity: {element.quantity}</h4>
+      <h4>Purchased? </h4> 
+      {/* <input type='checkbox'>{element.isPurchased}</input> */}
+      <br/>
+    </div>
+  )
+})
+
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>Shopping List</h3>
+      {list}
     </div>
   );
 }
-
-export default App;
