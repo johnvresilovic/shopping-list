@@ -3,7 +3,7 @@ export default [
   item: 'sliced turkey',
   brand: 'Gobbler',
   units: 'lbs',
-  quantity: 1,
+  quantity: 2,
   isPurchased: false,
 },
 {
