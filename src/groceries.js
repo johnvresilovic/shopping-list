@@ -4,7 +4,7 @@ export default [
   brand: 'Gobbler',
   units: 'lbs',
   quantity: 1,
-  isPurchased: true,
+  isPurchased: false,
 },
 {
   item: 'laundry detergent',
